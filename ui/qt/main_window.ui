@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1400</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="mainVertical">
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="lblBalanceTotal">
+      <property name="text">
+       <string>Total Balance:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="lblBalanceAvailable">
+      <property name="text">
+       <string>Available Balance:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="orderLayout">
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>10</number>
+      </property>
+      <item>
+       <layout class="QVBoxLayout" name="assetLayout">
+        <property name="leftMargin">
+         <number>5</number>
+        </property>
+        <property name="topMargin">
+         <number>5</number>
+        </property>
+        <property name="rightMargin">
+         <number>5</number>
+        </property>
+        <property name="bottomMargin">
+         <number>5</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>My Assets</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="lstMyAssets"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="buyOrderLayout">
+        <property name="leftMargin">
+         <number>5</number>
+        </property>
+        <property name="topMargin">
+         <number>5</number>
+        </property>
+        <property name="rightMargin">
+         <number>5</number>
+        </property>
+        <property name="bottomMargin">
+         <number>5</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Active Orders</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnNewBuyOrder">
+          <property name="text">
+           <string>New Buy Order</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnNewSellOrder">
+          <property name="text">
+           <string>New Sell Order</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnNewTradeOrder">
+          <property name="text">
+           <string>New Trade Order</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="lstAllOrders"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="pastOrderLayout">
+        <property name="leftMargin">
+         <number>5</number>
+        </property>
+        <property name="topMargin">
+         <number>5</number>
+        </property>
+        <property name="rightMargin">
+         <number>5</number>
+        </property>
+        <property name="bottomMargin">
+         <number>5</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Order History</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="lstPastOrders"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="completedOrderLayout">
+        <property name="leftMargin">
+         <number>5</number>
+        </property>
+        <property name="topMargin">
+         <number>5</number>
+        </property>
+        <property name="rightMargin">
+         <number>5</number>
+        </property>
+        <property name="bottomMargin">
+         <number>5</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Completed Order History</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnCompleteOrder">
+          <property name="text">
+           <string>Verify/Complete Order</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="lstCompletedOrders"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1400</width>
+     <height>26</height>
+    </rect>
+   </property>
+
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Raven-Trader</string>
+    </property>
+    <addaction name="actionNewBuy"/>
+    <addaction name="actionNewSell"/>
+    <addaction name="actionNewTrade"/>
+    <addaction name="separator"/>
+    <addaction name="actionCompleteOrder"/>
+    <addaction name="separator"/>
+    <addaction name="actionResetLocks"/>
+    <addaction name="actionExit"/>
+   </widget>
+
+   <widget class="QMenu" name="menuConnection">
+    <property name="title">
+     <string>RPC Connection</string>
+    </property>
+   </widget>
+   
+   <widget class="QMenu" name="menuServer">
+    <property name="title">
+     <string>Trade Server</string>
+    </property>
+    <addaction name="actionServerListOrderse"/>
+   </widget>
+
+   <addaction name="menuFile"/>
+   <addaction name="menuConnection"/>
+   <addaction name="menuServer"/>
+  </widget>
+
+
+  <widget class="QStatusBar" name="statusbar"/>
+  
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  
+  <action name="actionNewBuy">
+   <property name="text">
+    <string>New Buy Order</string>
+   </property>
+  </action>
+  <action name="actionNewSell">
+   <property name="text">
+    <string>New Sell Order</string>
+   </property>
+  </action>
+  <action name="actionNewTrade">
+   <property name="text">
+    <string>New Trade Order</string>
+   </property>
+  </action>
+  <action name="actionCompleteOrder">
+   <property name="text">
+    <string>Complete Order</string>
+   </property>
+  </action>
+  
+  <action name="actionRemoveTrade">
+   <property name="text">
+    <string>Remove Trade</string>
+   </property>
+  </action>
+  <action name="actionRemoveOrder">
+   <property name="text">
+    <string>Remove Order</string>
+   </property>
+  </action>
+  <action name="actionViewTrade">
+   <property name="text">
+    <string>View Trade Details</string>
+   </property>
+  </action>
+  <action name="actionViewOrder">
+   <property name="text">
+    <string>View Order Details</string>
+   </property>
+  </action>
+  <action name="actionSetupTrade">
+   <property name="text">
+    <string>Setup Trade Order(s)</string>
+   </property>
+  </action>
+  <action name="actionRefillTrade">
+   <property name="text">
+    <string>Refill Trade Pool</string>
+   </property>
+  </action>
+
+  <action name="actionViewOnlineCryptoscope">
+   <property name="text">
+    <string>View Online (cryptoscope.io)</string>
+   </property>
+  </action>
+  
+  <action name="actionServerListOrderse">
+   <property name="text">
+    <string>List Server Trade Orders</string>
+   </property>
+  </action>
+  <action name="actionServerPostOrder">
+   <property name="text">
+    <string>Post Trade(s) to Server</string>
+   </property>
+  </action>
+
+  <action name="actionRefresh">
+   <property name="text">
+    <string>Refresh from Wallet</string>
+   </property>
+  </action>
+  <action name="actionResetLocks">
+   <property name="text">
+    <string>Reset all Wallet Locks</string>
+   </property>
+  </action>
+
+  <action name="actionDefault_Destination">
+   <property name="text">
+    <string>Default Destination</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btnNewBuyOrder</sender>
+   <signal>clicked()</signal>
+   <receiver>actionNewBuy</receiver>
+   <slot>trigger()</slot>
+  </connection>
+  <connection>
+   <sender>btnNewSellOrder</sender>
+   <signal>clicked()</signal>
+   <receiver>actionNewSell</receiver>
+   <slot>trigger()</slot>
+  </connection>
+  <connection>
+   <sender>btnNewTradeOrder</sender>
+   <signal>clicked()</signal>
+   <receiver>actionNewTrade</receiver>
+   <slot>trigger()</slot>
+  </connection>
+  <connection>
+   <sender>btnCompleteOrder</sender>
+   <signal>clicked()</signal>
+   <receiver>actionCompleteOrder</receiver>
+   <slot>trigger()</slot>
+  </connection>
+  
+  <connection>
+   <sender>actionServerListOrderse</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>server_list_orders()</slot>
+  </connection>
+  <connection>
+   <sender>actionServerPostOrder</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>server_post_trade()</slot>
+  </connection>
+  
+  <connection>
+   <sender>actionViewOnlineCryptoscope</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>view_online_cryptoscope()</slot>
+  </connection>
+  
+  <connection>
+   <sender>actionRefresh</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>refresh_main_window()</slot>
+  </connection>
+  <connection>
+   <sender>actionResetLocks</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>action_reset_locks()</slot>
+  </connection>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+  </connection>
+
+
+  <connection>
+   <sender>actionNewBuy</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>new_buy_order()</slot>
+  </connection>
+  <connection>
+   <sender>actionNewSell</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>new_sell_order()</slot>
+  </connection>
+  <connection>
+   <sender>actionNewTrade</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>new_trade_order()</slot>
+  </connection>
+  <connection>
+   <sender>actionCompleteOrder</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>complete_order()</slot>
+  </connection>
+
+  <connection>
+   <sender>actionRemoveTrade</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>action_remove_trade()</slot>
+  </connection>
+  <connection>
+   <sender>actionRemoveOrder</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>action_remove_order()</slot>
+  </connection>
+  <connection>
+   <sender>actionViewTrade</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>action_view_trade()</slot>
+  </connection>
+  <connection>
+   <sender>actionViewOrder</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>action_view_order()</slot>
+  </connection>
+  <connection>
+   <sender>actionSetupTrade</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>action_setup_trade()</slot>
+  </connection>
+  <connection>
+   <sender>actionRefillTrade</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>action_refill_trade()</slot>
+  </connection>
+  
+  <connection>
+   <sender>lstAllOrders</sender>
+   <signal>itemDoubleClicked(QListWidgetItem*)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>trade_double_clicked()</slot>
+  </connection>
+  <connection>
+   <sender>lstPastOrders</sender>
+   <signal>itemDoubleClicked(QListWidgetItem*)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>order_double_clicked()</slot>
+  </connection>
+  <connection>
+   <sender>lstCompletedOrders</sender>
+   <signal>itemDoubleClicked(QListWidgetItem*)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>order_double_clicked()</slot>
+  </connection>
+ </connections>
+</ui>

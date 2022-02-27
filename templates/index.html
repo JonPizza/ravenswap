@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RavenSwap.net</title>
+        <meta name="description" content="Swap your Ravencoin for Assets using Atomic Swaps. Low fees and simple to use.">
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+                background-color: rgb(53, 2, 54);
+                font-family: monospace;
+                height: 90%;
+            }
+
+            #con {
+                background-color: white;
+                width: 40%;
+                min-width: 500px;
+                max-width: 800px;
+                border: 3px solid black;
+                margin: 10% auto;
+                padding: 3%;
+                font-size: 1.4rem;
+                text-align: center;
+                box-shadow: 16px 16px teal;
+                z-index: 3;
+                position: relative;
+            }
+
+            #info {
+                color: red;
+                font-size: 1rem;
+            }
+
+            #header {
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            .red {
+                color: red;
+            }
+
+            .green {
+                color: limegreen;
+            }
+
+            .h {
+                font-size: 3.2rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .links {
+                float: right; 
+                width: 50%; 
+                font-size: 1.1rem; 
+                text-align: right;
+                color: white;
+            }
+
+            .link {
+                color: white;
+                margin: 50% 0;
+            } .link:hover {
+             
+                color: rgb(255, 227, 100);
+            }
+
+            #go {
+                border: none;
+                background-color: green;
+                border-radius: 3px;
+                color: white;
+                padding: 1% 2%;
+                transition: 0.3s;
+            } #go:hover {
+                background-color: rgb(45, 148, 19);
+            }
+
+            #addr {
+                width: 340px;
+            }
+
+            #lines {
+                position: absolute;
+                width: 100%;
+                top: 400px;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <h1 class="h"><span class="red">Raven</span><span class="green">Swap</span></h1>
+        </div>
+        <br style="clear: both;">
+        <img src="https://hodltree.net/lines.png" id="lines">
+        <div id="con">
+            <span style="color: red;">{{ msg }}</span>
+            <form method="GET" action="order">
+                <textarea rows=5 cols=40 placeholder="Signed Partial..." name="sp" required></textarea><br>
+                <input type="text" placeholder="Ravencoin Output Address" name="addr" id="addr" required><br><br>
+                <button type="submit" id="go">Submit</button>
+            </form>
+            Fee: 1% + 0.1 RVN (<a href="https://ravenswap-net.medium.com/ravenswap-fee-distribution-ef6b8de91f75">Fee Info</a>)
+        </div>
+    </body>
+</html>
